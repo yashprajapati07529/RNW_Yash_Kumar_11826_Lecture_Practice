@@ -1,0 +1,41 @@
+* {
+      box-sizing: border-box;
+      font-family: 'Rubik';
+}
+
+/* header */
+
+/* main */
+/* home section */
+.home-banner .button-border {
+      border: 15px solid red;
+      border-right: none;
+      width: 100%;
+      height: 500px;
+      background: transparent;
+
+
+}
+
+.circle-frame {
+      width: 420px;
+      aspect-ratio: 1/1;
+      border: 12px solid black;
+      margin-left: 30px;
+      overflow: hidden;
+}
+
+.circle-frame img {
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+}
+
+
+/* footer */
+
+.footer-icon a {
+      margin-right: 10px;
+      font-size: 20px;
+}

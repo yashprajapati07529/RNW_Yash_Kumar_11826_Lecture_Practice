@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.box {
+    width: 1500px;
+    height: auto;
+    background-color: rgb(96, 86, 86);
+    font-size: 20px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.box h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 500px;
+    background-color: antiquewhite;
+    display: flex;
+    margin-left: 0px;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.column-reverse {
+    flex-direction: column-reverse;
+}
+
+.row-wrap {
+    flex-flow: row wrap;
+
+}
+
+.row-wrap-reverse {
+    flex-flow: row wrap-reverse;
+}
+
+.row-nowrap {
+    flex-flow: row nowrap;
+}
+
+.column-wrap {
+    flex-flow: column wrap;
+}
+
+.column-wrap-reverse {
+    flex-flow: column wrap-reverse;
+}
+
+.column-nowrap {
+    flex-flow: column nowrap;
+}
+
+.flex-star {
+    justify-content: flex-start;
+}
+
+.flex-and {
+    justify-content: flex-end;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.star {
+    align-items: flex-start;
+}
+
+.and {
+    align-items: flex-end;
+}
+
+.cen {
+    align-items: center;
+}
+
+.between {
+    align-content: space-between;
+}
+
+.around {
+    align-content: space-around;
+}
+
+.evenly {
+    align-content: space-evenly;
+}
+
+
+.box1 {
+    flex-basis: 100px;
+    height: 100px;
+    background-color: rgb(240, 111, 13);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+
+}
+
+.box2 {
+    flex-basis: 50px;
+    height: 100px;
+    background-color: rgb(13, 240, 231);
+    text-align: center;
+    color: black;
+    font-size: 20px;
+
+}
+
+.box3 {
+    flex-basis: 300px;
+    height: 100px;
+    background-color: rgb(13, 66, 240);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+
+}
+
+.box4 {
+    flex-basis: 200px;
+    height: 100px;
+    background-color: rgb(240, 13, 231);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    flex-grow: 1;
+
+}
+
+.box5 {
+    background-color: blue;
+}
+
+.box6 {
+    background-color: green;
+}
+
+.box7 {
+    background-color: red;
+}
+
+.box8 {
+    background-color: yellow;
+    color: black;
+}
+
+.flexshrink {
+    flex-shrink: 0;
+}
+
+.flex-shrink {
+    flex-shrink: 1;
+}
+
+.flex--shrink {
+    flex-shrink: 2;
+}
+
+.flex---shrink {
+    flex-shrink: 3;
+}
+
+.order {
+    order: 0;
+}
+
+.order1 {
+    order: 1;
+}
+
+.order2 {
+    order: 2;
+}
+
+.order3 {
+    order: 3;
+}
+
+.align-self1 {
+    align-self: center;
+}
+
+.align-self2 {
+    align-self: flex-end;
+}
+
+.align1 {
+    align-self: stretch;
+}
+
+.align2 {
+    align-self: baseline;
+}

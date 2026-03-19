@@ -1,0 +1,31 @@
+.demo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.slide-area {
+    font-size: 6rem;
+    text-align: center;
+    padding: 50px;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+    width: 100%;
+
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+    width: 200px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}

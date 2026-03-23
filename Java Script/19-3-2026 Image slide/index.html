@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="slideimage">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <img src="./images/image1.avif" alt="image-slides">
+                    <div class="caption"></div>
+                </div>
+                <div class="slide">
+                    <img src="./images/image2.avif" alt="image-slides">
+                    <div class="caption"></div>
+                </div>
+                <div class="slide">
+                    <img src="./images/image3.avif" alt="image-slides">
+                    <div class="caption"></div>
+                </div>
+                <div class="slide">
+                    <img src="./images/image4.avif" alt="image-slides">
+                    <div class="caption"></div>
+                </div>
+                <div class="slide">
+                    <img src="./images/image5.avif" alt="image-slides">
+                    <div class="caption"></div>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)"><i class=" fa-solid fa-chevron-left"></i></button>
+            <button class="next" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots" id="dots"></div>
+        </div>
+    </div>
+
+    <script src="./jss/script.js"></script>
+</body>
+
+</html>

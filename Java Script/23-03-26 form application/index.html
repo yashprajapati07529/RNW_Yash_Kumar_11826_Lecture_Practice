@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="mainpanel">
+                <h3>Student Registration Form</h3>
+                <form onsubmit="return validateForm()">
+                    <div class=" form-group">
+                        <label> Student Name :</label>
+                        <input type="text" id="name">
+                        <div id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label1">Email Id :</label>
+                        <input type="email" id="email">
+                        <div id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label2"> Mobile No. :</label>
+                        <input type="number" id="number">
+                        <div id="numberError"></div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label3"> Father Name :</label>
+                        <input type="text" id="fathername">
+                        <div id="fathernameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label4"> Mother Name :</label>
+                        <input type="text" id="mothername">
+                        <div id="mothernameError"></div>
+                    </div>
+                    <div class="input_form">
+                        <button type="submit" class="form_btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./jss/script.js"></script>
+</body>
+
+</html>

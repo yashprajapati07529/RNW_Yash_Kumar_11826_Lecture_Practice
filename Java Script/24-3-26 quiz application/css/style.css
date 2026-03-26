@@ -8,7 +8,7 @@ body {
 }
 
 .quiz-wrapper {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #f1755f, #df5d40);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
 }
 
 .quiz-header {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #c14029, #ec5b3a);
     color: white;
     padding: 2rem;
     text-align: center;
@@ -104,7 +104,7 @@ body {
 
 .btn-next,
 .btn-restart {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #e53e25, #f26f55);
     color: white;
     border: none;
     padding: 0.75rem 2rem;
@@ -124,7 +124,7 @@ body {
 
 .results-container {
     background: linear-gradient(135deg, #f8faff, #eef2ff);
-    padding: 40px 35px;
+    padding: 1.5rem 2.7rem;
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -196,7 +196,7 @@ body {
     font-size: 15px;
     font-weight: 600;
     border-radius: 999px;
-    background: linear-gradient(135deg, #4c6fff, #6c8cff);
+    background: linear-gradient(135deg, #df2d0e, #fa6031);
     color: #fff;
     border: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;

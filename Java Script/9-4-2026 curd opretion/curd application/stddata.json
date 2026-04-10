@@ -1,0 +1,22 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "Manan",
+            "grid": 10277,
+            "course": "Fullstack Development",
+            "fees": 2999,
+            "age": 22,
+            "email": "example@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "Rahul",
+            "grid": 10275,
+            "course": "Fullstack Development",
+            "fees": 10000,
+            "age": 21,
+            "email": "example@gmail.com"
+        }
+    ]
+}

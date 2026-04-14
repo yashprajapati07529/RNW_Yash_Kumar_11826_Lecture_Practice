@@ -1,0 +1,14 @@
+{
+    "students": [
+        {
+            "name": "Ravi kumar",
+            "grid": "11242",
+            "course": "CSS",
+            "fees": "7000",
+            "age": "18",
+            "email": "ravi323@gmail.com",
+            "id": "9MJI-V3gdR4"
+        }
+    ],
+    "$schema": "./node_modules/json-server/schema.json"
+}

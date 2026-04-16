@@ -1,0 +1,41 @@
+{
+  "students": [
+    {
+      "name": "Yash kumar",
+      "grid": "11826",
+      "course": "Javascript",
+      "fees": "10000",
+      "age": "18",
+      "email": "yashprajapati07529@gmail.com",
+      "id": "d9u2TiauvMo"
+    },
+    {
+      "name": "Ravi Kumar",
+      "grid": "22313",
+      "course": "Reactjs",
+      "fees": "10000",
+      "age": "18",
+      "email": "ravi323@gmail.com",
+      "id": "tCaQhyqeFR0"
+    },
+    {
+      "name": "Amit Kumar",
+      "grid": "11232",
+      "course": "HTML",
+      "fees": "5000",
+      "age": "17",
+      "email": "amitkumar2212@gmail.com",
+      "id": "3ruuH_NrnGw"
+    },
+    {
+      "name": "Ayush ",
+      "grid": "11122",
+      "course": "Javascript",
+      "fees": "12000",
+      "age": "19",
+      "email": "ayush323@gmail.com",
+      "id": "PGCGQDhRJ1E"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

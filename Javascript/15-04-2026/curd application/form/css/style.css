@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #27454f, #38738c);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Left Side Styling */
+.left-side {
+    flex: 1;
+    background-image: url('../image/pawel-czerwinski-BPrk2cOoCq8-unsplash.jpg');
+    /* Abstract Art Image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 60px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.overlay-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+/* Right Side Styling */
+.right-side {
+    flex: 1;
+    padding: 50px;
+    background: #fff;
+}
+
+.right-side h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+input,
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.terms {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-join {
+    background: #111;
+    color: white;
+}
+
+.btn-join:hover {
+    background: #333;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.btn-google {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.btn-google img {
+    width: 20px;
+}
+
+.btn-apple {
+    background: #000;
+    color: white;
+}

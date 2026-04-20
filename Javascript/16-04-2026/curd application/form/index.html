@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Left Side: Image & Text -->
+            <div class="left-side">
+                <div class="overlay-text">
+                    <h1>Create your Account</h1>
+                    <p>Share your artwork and Get projects!</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="right-side">
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <input type="text" placeholder="First name" required>
+                    <input type="text" placeholder="Last name" required>
+                    <input type="email" placeholder="Email address" required>
+                    <input type="password" placeholder="Password" required>
+
+                    <div class="terms">
+                        <!-- <input type="checkbox" id="terms" required> -->
+                        <label for="terms">Accept Terms & Conditions</label>
+                    </div>
+
+                    <button type="submit" class="btn-join">Join us &rarr;</button>
+
+                    <div class="divider">or</div>
+
+                    <button type="button" class="btn-google">
+                        <img src="./image/google.png" alt="google"> Sign up with Google
+                    </button>
+                    <button type="button" class="btn-apple">
+                        <i class="fa-brands fa-apple"></i> Sign up with Apple
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

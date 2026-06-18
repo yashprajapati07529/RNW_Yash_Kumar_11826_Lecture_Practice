@@ -32,7 +32,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.intro {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  padding: 20px;
+  border-radius: 8px;
+  color: #333;
+  /* Dark text ispar suit karega */
+}
+
+.summary {
+  border: 5px solid yellow;
+  padding: 10px;
+  font-size: 16px;
+
 }

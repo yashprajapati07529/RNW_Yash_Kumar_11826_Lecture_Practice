@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Billing System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="container my-4 no-print">
+        <h2 class="text-center mb-4">Advance Product & Billing Management</h2>
+
+        <div class="row">
+            <!-- Left Side: Master Forms & Product List -->
+            <div class="col-md-4">
+                <!-- 1. Category Form -->
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">Add Category</div>
+                    <div class="card-body">
+                        <form id="categoryForm">
+                            <input type="text" id="categoryName" class="form-control" placeholder="e.g., Electronics, Grocery" required>
+                            <button type="submit" class="btn btn-primary mt-2 w-100">Save Category</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 2. Product Master Form -->
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">Add Product Master</div>
+                    <div class="card-body">
+                        <form id="productForm">
+                            <div class="mb-2">
+                                <label>Select Category</label>
+                                <select id="productCategory" class="form-select" required></select>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" id="productName" class="form-control" placeholder="Product Name" required>
+                            </div>
+                            <div class="mb-2">
+                                <input type="number" id="productPrice" class="form-control" placeholder="Price (₹)" min="1" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Add Product</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 3. Dynamic Product Master List -->
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">Product Master List (Click to Select)</div>
+                    <div class="card-body p-0" style="max-height: 200px; overflow-y: auto;">
+                        <table class="table table-sm table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="masterProductTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Live Customer Billing Table -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">Customer Cart & Live Billing</div>
+                    <div class="card-body">
+                        
+                        <!-- Customer Details Info -->
+                        <div class="row mb-3 bg-light p-2 g-2 rounded border">
+                            <div class="col-md-6">
+                                <input type="text" id="custName" class="form-control" placeholder="Customer Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="custMobile" class="form-control" placeholder="Mobile Number">
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th style="width: 130px;">Price (₹)</th>
+                                    <th style="width: 90px;">Qty</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartTableBody"></tbody>
+                            <tfoot class="table-light">
+                                <tr>
+                                    <td><input type="text" id="directItemName" class="form-control form-control-sm" placeholder="Enter Item Name" required></td>
+                                    <td><input type="number" id="directItemPrice" class="form-control form-control-sm" placeholder="Price" min="0" required></td>
+                                    <td><input type="number" id="directItemQty" class="form-control form-control-sm" value="1" min="1" required></td>
+                                    <td colspan="2"><button id="directAddBtn" class="btn btn-dark btn-sm w-100">+ Add Item</button></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Tax, Discount & Payment Method Controls -->
+                        <div class="row mt-3 g-2 bg-light p-3 rounded border">
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Discount (₹)</label>
+                                <input type="number" id="billDiscount" class="form-control" value="0" min="0">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">GST (%)</label>
+                                <input type="number" id="billGST" class="form-control" value="18" min="0">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Payment Method</label>
+                                <select id="paymentMethod" class="form-select">
+                                    <option value="Cash">💵 Cash</option>
+                                    <option value="Online (UPI/QR)">📱 Online (UPI/QR)</option>
+                                    <option value="Card">💳 Debit/Credit Card</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Grand Breakdown Display -->
+                        <div class="text-end mt-3 border-top pt-2">
+                            <p class="mb-1">Sub Total: ₹<span id="displaySubTotal">0.00</span></p>
+                            <p class="mb-1 text-danger">Discount: -₹<span id="displayDiscount">0.00</span></p>
+                            <p class="mb-1 text-success">GST Amount: +₹<span id="displayGstAmount">0.00</span></p>
+                            <h3 class="fw-bold">Grand Total: ₹<span id="cartGrandTotal">0.00</span></h3>
+                        </div>
+                        
+                        <button id="generateBillBtn" class="btn btn-warning w-100 mt-2 fw-bold fs-5">Generate & Print Bill</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINT SECTION -->
+    <div id="invoicePrintArea" class="print-only">
+        <div class="invoice-box">
+            <div class="text-center mb-4">
+                <h1>RAJ RATNA BUTTON CENTER</h1>
+                <p>Gode vale gali, Bundelawad , Bhagal,  Surat | Mob: 9924567882</p>
+                <hr style="border-top: 2px dashed #000;">
+                <h3>RETAIL INVOICE</h3>
+            </div>
+            
+            <div class="invoice-meta d-flex justify-content-between border p-2 mb-3 bg-light rounded" style="display: flex; justify-content: space-between;">
+                <div>
+                    <p><strong>Customer:</strong> <span id="printCustName">Walk-in</span></p>
+                    <p><strong>Mobile:</strong> <span id="printCustMobile">-</span></p>
+                </div>
+                <div class="text-end" style="text-align: right;">
+                    <p><strong>Date:</strong> <span id="billDate"></span></p>
+                    <p><strong>Invoice No:</strong> #INV-<span id="billNumber"></span></p>
+                </div>
+            </div>
+
+            <table class="table table-bordered print-table">
+                <thead>
+                    <tr>
+                        <th>Product Details</th>
+                        <th>Rate</th>
+                        <th>Qty</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="billItemsBody"></tbody>
+            </table>
+
+            <div class="text-end mt-3" style="text-align: right;">
+                <p class="mb-1">Sub Total: ₹<span id="printSubTotal">0.00</span></p>
+                <p class="mb-1">Discount: -₹<span id="printDiscount">0.00</span></p>
+                <p class="mb-1">GST Amount: +₹<span id="printGstAmount">0.00</span></p>
+                <hr style="width: 200px; inline-block; margin-left: auto;">
+                <h4><strong>Grand Total: ₹<span id="billGrandTotal">0.00</span></strong></h4>
+                <p class="mt-2"><strong>Payment Mode:</strong> <span id="printPayMethod">Cash</span></p>
+            </div>
+
+            <div class="text-center mt-5 bill-footer">
+                <p>Thank you for shopping with us!</p>
+                <p>Visit Again</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="./script.js"></script>
+</body>
+</html>

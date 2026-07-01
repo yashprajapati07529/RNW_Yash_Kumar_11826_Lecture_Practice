@@ -1,0 +1,218 @@
+/* ==========================================
+   1. GLOBAL & FONTS SETTINGS
+   ========================================== */
+@import url('https://googleapis.com');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* ==========================================
+   2. DASHBOARD DESIGNS (SCREEN VIEW)
+   ========================================== */
+.container {
+    max-width: 1200px;
+}
+
+h2 {
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+/* Cards Design */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 24px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.card-header {
+    font-weight: 600;
+    padding: 14px 20px;
+    border-bottom: none;
+    font-size: 1.1rem;
+}
+
+/* Form Inputs Design */
+.form-control, .form-select {
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Buttons Design */
+.btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary { background-color: #4f46e5; border-color: #4f46e5; }
+.btn-primary:hover { background-color: #4338ca; border-color: #4338ca; }
+
+.btn-success { background-color: #10b981; border-color: #10b981; }
+.btn-success:hover { background-color: #059669; border-color: #059669; }
+
+.btn-dark { background-color: #1e293b; border-color: #1e293b; }
+.btn-dark:hover { background-color: #0f172a; border-color: #0f172a; }
+
+.btn-warning { background-color: #f59e0b; border-color: #f59e0b; color: #fff; }
+.btn-warning:hover { background-color: #d97706; border-color: #d97706; color: #fff; }
+
+/* Table Design (Screen) */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.table td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+}
+
+/* Hide print section on browser screen */
+.print-only {
+    display: none;
+}
+
+
+/* ==========================================
+   3. PREMIUM PRINT & BILL DESIGN
+   ========================================== */
+@media print {
+    /* 1. Purane saare forms gayab karein */
+    .no-print {
+        display: none !important;
+    }
+    
+    /* 2. Bill layout chalu karein */
+    .print-only {
+        display: block !important;
+    }
+
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* Professional Invoice Container */
+    .invoice-box {
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
+        color: #000;
+    }
+
+    /* Company Header */
+    .invoice-box h1 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .invoice-box p {
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .invoice-box hr {
+        border-top: 2px solid #000 !important;
+        opacity: 1;
+        margin: 15px 0;
+    }
+
+    .invoice-box h3 {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    /* Bill Info Details (Date/Invoice No) */
+    .bill-meta-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    /* Print Table Layout */
+    .print-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse !important;
+    }
+
+    .print-table th {
+        background-color: #f2f2f2 !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        font-size: 13px;
+        padding: 10px !important;
+    }
+
+    .print-table td {
+        border: 1px solid #ddd !important;
+        padding: 10px !important;
+        font-size: 14px;
+    }
+
+    /* Grand Total Highlight */
+    .text-end h4 {
+        font-size: 20px;
+        font-weight: 700;
+        border-top: 2px dashed #000;
+        display: inline-block;
+        padding-top: 10px;
+        margin-top: 15px;
+    }
+
+    /* Thank You Footer */
+    .bill-footer {
+        margin-top: 60px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        font-style: italic;
+        font-size: 13px;
+        color: #555;
+    }
+}

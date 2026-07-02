@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise POS & Billing System with GST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- LEFT SIDE: MASTERS & PRODUCTS MANAGEMENT -->
+    <div class="panel left-panel">
+        <h2>📦 Master Management</h2>
+        
+        <!-- Category Master Form -->
+        <div class="card">
+            <h3>Add Category</h3>
+            <form id="categoryForm">
+                <input type="text" id="catName" placeholder="Category Name (e.g. Electronics)" required>
+                <button type="submit" class="btn btn-success">Save Category</button>
+            </form>
+        </div>
+
+        <!-- Product Master Form with GST -->
+        <div class="card">
+            <h3>Add Product Master</h3>
+            <form id="productForm">
+                <select id="prodCategory" required>
+                    <option value="">Select Category</option>
+                </select>
+                <input type="text" id="prodName" placeholder="Product Name" required>
+                <input type="number" id="prodPrice" placeholder="Base Price (₹) [Excl. GST]" min="0" step="0.01" required>
+                
+                <label for="prodGst" style="font-weight:600; font-size:13px; color:#555; display:block; margin-bottom:5px;">GST Rate (%):</label>
+                <select id="prodGst" required>
+                    <option value="0">0% (Exempted)</option>
+                    <option value="5">5% (Essential)</option>
+                    <option value="12">12% (Standard)</option>
+                    <option value="18" selected>18% (Standard POS)</option>
+                    <option value="28">28% (Luxury/Deerit)</option>
+                </select>
+                
+                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Save Product</button>
+            </form>
+        </div>
+
+        <!-- Click to Select Product List -->
+        <div class="card">
+            <h3>🛒 Product Master List (Click to Select)</h3>
+            <div class="filter-section">
+                <select id="filterCategory" onchange="renderMasterProducts()">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div id="masterProductList" class="grid-products">
+                <!-- Products load here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE: LIVE CART & BILLING -->
+    <div class="panel right-panel">
+        <h2>🧾 Live Billing & Customer Cart</h2>
+        
+        <form id="billingForm">
+            <!-- Hidden input to track if we are editing -->
+            <input type="hidden" id="editingInvoiceId" value="">
+
+            <!-- Customer Details -->
+            <div class="card customer-info">
+                <input type="text" id="custName" placeholder="Customer Name" required>
+                <input type="text" id="custPhone" placeholder="Customer Phone" required>
+            </div>
+
+            <!-- Live Cart Table -->
+            <div class="card cart-section">
+                <h3>Current Cart Items</h3>
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Base Price</th>
+                            <th>GST %</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartBody">
+                        <!-- Cart items appear here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Payment & Summary Block -->
+            <div class="card billing-summary">
+                <div class="payment-method-block">
+                    <h3>💳 Payment Method</h3>
+                    <div class="payment-options">
+                        <label><input type="radio" name="paymentMethod" value="Cash" checked onclick="toggleUPIScanner(false)"> 💵 Cash</label>
+                        <label><input type="radio" name="paymentMethod" value="UPI" onclick="toggleUPIScanner(true)"> 📱 UPI (Scan QR)</label>
+                        <label><input type="radio" name="paymentMethod" value="Card" onclick="toggleUPIScanner(false)"> 💳 Card</label>
+                        <label><input type="radio" name="paymentMethod" value="Net Banking" onclick="toggleUPIScanner(false)"> 🏦 Net Banking</label>
+                    </div>
+                </div>
+
+                <div class="totals-block">
+                    <p>Subtotal (Taxable): ₹<span id="subtotal">0.00</span></p>
+                    <p>CGST: ₹<span id="cgst">0.00</span></p>
+                    <p>SGST: ₹<span id="sgst">0.00</span></p>
+                    <p>Total GST: ₹<span id="tax">0.00</span></p>
+                    <div class="final-total">Total Amount: ₹<span id="total">0.00</span></div>
+                    <button type="submit" id="submitBtn" class="btn btn-primary btn-large">Generate & Save Invoice</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Saved Invoices History -->
+        <div class="card history-section">
+            <h3>📜 Saved Invoices History</h3>
+            <div id="invoiceHistoryList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- UPI QR MODAL -->
+<div id="upiModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3>📱 UPI Payment QR Scanner</h3>
+        <p>Please scan this QR Code to pay: <b style="color: #321fdb;">₹<span id="modalTotal">0.00</span></b></p>
+        <div class="qr-container">
+            <img id="qrImage" src="" alt="Scan to Pay">
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">Once payment is successful, click "Verify & Proceed".</p>
+        <button class="btn btn-success" style="margin-top: 15px; width: 100%;" onclick="closeModal()">Verify & Proceed</button>
+    </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>

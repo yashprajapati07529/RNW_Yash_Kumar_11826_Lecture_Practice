@@ -150,4 +150,18 @@ Object.freeze(obj);
 
 console.log(obj.result);
 
+// Seal()
+
+const object = {
+  foo: 42,
+};
+
+Object.seal(object);
+object.foo = 33;
+console.log(object.foo);
+
+
+delete object.foo; 
+
+console.log(object.foo);
 

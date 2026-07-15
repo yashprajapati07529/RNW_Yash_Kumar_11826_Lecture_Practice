@@ -135,3 +135,19 @@ const users = [
 users.forEach(user => {
     console.log(user.name, user.age);
 })
+
+// Freeze 
+
+const obj = {
+  prop: 20,
+};
+
+Object.freeze(obj);
+
+obj.result = 55;
+
+Object.freeze(obj);
+
+console.log(obj.result);
+
+
